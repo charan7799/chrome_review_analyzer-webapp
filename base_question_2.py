@@ -52,9 +52,9 @@ def arrange_data(df_org, rev_data, rev_column='Text', rat_column = 'Star'):
     req_PosRev_data = rev_data[rev_data['sentiment'] == "Positive"]
     req_PosRev_data_full = df_org.loc[df_org['ID'].isin(req_PosRev_data.ID.values)]
 
-    return req_PosRev_data_full
+    return req_PosRev_data, req_PosRev_data_full
 
-def check_password():
+def check_password(): ### took from streamlit docs
     """Returns `True` if the user had a correct password."""
 
     def password_entered():
@@ -103,11 +103,11 @@ def main():
     if up_file is not None:
         df = read_df(up_file)
         req_data = gather_req(data=df, columns_req=['ID', 'Text', "Star"])
-        req_PosRev_data_full = arrange_data(df, req_data)
+        req_PosRev_data, req_PosRev_data_full = arrange_data(df, req_data)
         data_csv = req_PosRev_data_full .to_csv().encode('utf-8')
-        st.write('## preview of the required reviews Data set')
-        st.dataframe(req_PosRev_data_full.head())
-
+        st.write("## preview of the required reviews Data set having ['ID', 'Review_Text', 'Star']")
+        st.dataframe(req_PosRev_data.head())
+        st.write("Click download data as CSV to download the entire dataset with these required reviews")
         st.download_button(
              label="Download data as CSV",
              data=data_csv,
