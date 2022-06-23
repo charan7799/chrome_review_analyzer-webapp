@@ -3,3 +3,4 @@ numpy
 matplotlib
 demoji
 textblob
+streamlit
