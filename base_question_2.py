@@ -105,8 +105,8 @@ def main():
         req_data = gather_req(data=df, columns_req=['ID', 'Text', "Star"])
         req_PosRev_data, req_PosRev_data_full = arrange_data(df, req_data)
         data_csv = req_PosRev_data_full .to_csv().encode('utf-8')
-        st.write("## preview of the required reviews Data set having ['ID', 'Review_Text', 'Star']")
-        st.dataframe(req_PosRev_data.head())
+        st.write("## preview of the required reviews Data set having ['ID', 'Text', 'Star']")
+        st.dataframe(req_PosRev_data[['ID', 'Text', 'Star']].head())
         st.write("Click download data as CSV to download the entire dataset with these required reviews")
         st.download_button(
              label="Download data as CSV",
