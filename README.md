@@ -5,13 +5,13 @@ Analyzing chrome reviews dataset to filter low ratings with reviews having posit
 ### Gathering the required data  
 As we only require ID, review, rating data from the dataset, we scrape these columns with star rating=1 from the original dataset (as we need to gather positive sentimental review with low rating) to temp dataset req_data  
 
-### cleaning review data  
+### Cleaning review data  
 From the head of the data we saw the reviews are not clean i.e, with emojis etc, first we convert emojis into text using demoji module then perform cleaning operations like removing unwanted numbers, spaces etc from the reviews using re module  
 
-### gathering the sentiment  
+### Gathering the sentiment  
 for this we can use simple and powerful library textblob to gather polarity of the review text but since we need a strong polarity to verify the positive sentiment of review, we adjust the threshold to 0.5. So, that only true positive sentimental reviews will be getting positive labels  
 
-### arranging the data  
+### Arranging the data  
 We then arrange the required data from these positively classified sentiment data with low rating from original data to the output  
 
 ### Deploying using streamlit  
