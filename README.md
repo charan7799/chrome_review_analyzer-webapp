@@ -1,3 +1,6 @@
+## Q2: There are times when a user writes Good, Nice App or anyother positive text, in the review and gives 1-star rating. Your goal is to identify the reviews where the semantics of review text does not match rating. Your goal is to identify such ratings where review text is good, but rating is negative so that the support team can point this to users.
+## Deploy it using - Flask/Streamlit etc and share the live link.
+
 # chrome_review_analyzer-webapp
 Analyzing chrome reviews dataset to filter low ratings with reviews having positive sentiment  
 
