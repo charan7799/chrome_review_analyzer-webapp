@@ -13,8 +13,8 @@ import pandas as pd
 import numpy as np
 import re
 import matplotlib.pyplot as plt
-import demoji
-from textblob import TextBlob
+import demoji # to decode the emoji data
+from textblob import TextBlob # for analysing the polarity of review for sentiment gathering
 import streamlit as st
 
 def read_df(file_path):
@@ -34,12 +34,12 @@ def arrange_data(df_org, rev_data, rev_column='Text', rat_column = 'Star'):
     demoji_text =[]
     rev_sent = []
     for rev in rev_data[rev_column]:
-        demoji_review = demoji.replace_with_desc(rev, ",")
-        demoji_review= re.sub(r'[^\w\s]', '', str(demoji_review))
+        demoji_review = demoji.replace_with_desc(rev, ",") # replace the emoji with its text decription
+        demoji_review= re.sub(r'[^\w\s]', '', str(demoji_review)) # cleaning the text
         demoji_review = re.sub(r'\d','',demoji_review)
-        demoji_review = demoji_review.lower().strip()
+        demoji_review = demoji_review.lower().strip() # converting text to lower case and stripping head and tail spaces from it
         pol_score = TextBlob(demoji_review).sentiment[0]
-        if (pol_score > 0.5):
+        if (pol_score > 0.5): # keeping threshold of 0.5 for positive sentiment
             rev_sent.append('Positive')
         elif (pol_score < 0.5):
             rev_sent.append('Negative')
@@ -55,7 +55,7 @@ def arrange_data(df_org, rev_data, rev_column='Text', rat_column = 'Star'):
     return req_PosRev_data, req_PosRev_data_full
 
 def check_password(): ### inspired from streamlit docs
-
+    """ for multiple user authentication"""
     def password_entered():
         if (
             st.session_state["username"] in st.secrets["passwords"]
@@ -90,6 +90,7 @@ def check_password(): ### inspired from streamlit docs
 
 def main():
     st.title("review file analyzer")
+    # adding style to the page
     html_temp = """
     <div style="background-color:tomato;padding:10px">
     <h2 style="color:white;text-align:center;">Streamlit review file analyzer webApp </h2>
