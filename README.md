@@ -22,6 +22,7 @@ we deploy the above using streamlit api with authentication and the live url is 
 https://charan7799-chrome-review-analyzer-webapp-base-question-2-ne1rel.streamlitapp.com/  
 
 #### steps in the api  
+As secrets.toml is not tracked, copy the contents of "secrets.toml" file to secrets page of streamlit api  
 enter the user details(user_1, "streamlit123")  
 upload the review file as csv  
 verify the data  
