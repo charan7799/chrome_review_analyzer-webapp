@@ -54,11 +54,9 @@ def arrange_data(df_org, rev_data, rev_column='Text', rat_column = 'Star'):
 
     return req_PosRev_data, req_PosRev_data_full
 
-def check_password(): ### took from streamlit docs
-    """Returns `True` if the user had a correct password."""
+def check_password(): ### inspired from streamlit docs
 
     def password_entered():
-        """Checks whether a password entered by the user is correct."""
         if (
             st.session_state["username"] in st.secrets["passwords"]
             and st.session_state["password"]
@@ -83,10 +81,9 @@ def check_password(): ### took from streamlit docs
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
-        st.error("😕 User not known or password incorrect")
+        st.error("password incorrect, please make sure that you entered details right!!!")
         return False
     else:
-        # Password correct.
         return True
 
 
