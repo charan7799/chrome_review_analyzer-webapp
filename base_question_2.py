@@ -96,8 +96,9 @@ def main():
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
+    # to get the interface for uploading, we can use easy streamlit commands
     up_file = st.file_uploader("please upload the review file")
-    if up_file is not None:
+    if up_file is not None: ## to validate the file existence
         df = read_df(up_file)
         req_data = gather_req(data=df, columns_req=['ID', 'Text', "Star"])
         req_PosRev_data, req_PosRev_data_full = arrange_data(df, req_data)
