@@ -3,7 +3,7 @@ Analyzing chrome reviews dataset to filter low ratings with reviews having posit
 
 ## Steps  
 ### Gathering the required data  
-As we only require ID, review, rating data from the dataset, we scrape these columns with star rating=1 from the original dataset (as we need to gather positive sentimental review with low rating) to temp dataset req_data  
+As we only require ID, review, rating data from the dataset, we scrape these columns with low star ratings (<=2 stars) from the original dataset (as we need to gather review with low rating having positive sentiment) to a temp dataset for analysis
 
 ### Cleaning review data  
 From the head of the data we saw the reviews are not clean i.e, with emojis etc, first we convert emojis into text using demoji module then perform cleaning operations like removing unwanted numbers, spaces etc from the reviews using re module  
