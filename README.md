@@ -1,4 +1,4 @@
-# chrome_review_analyzer-webapp
+# Chrome Review Analyzer WebApp
 Analyzing chrome reviews dataset to filter low ratings with reviews having positive sentiment  
 
 ## Steps  
@@ -15,12 +15,21 @@ for this we can use simple and powerful library textblob to gather polarity of t
 We then arrange the required data from these positively classified sentiment data with low rating from original data to the output  
 
 ### Deploying using streamlit  
-we deploy the above using streamlit api with authentication and the live url is given below  
-https://charan7799-chrome-review-analyzer-webapp-base-question-2-ne1rel.streamlitapp.com/  
-
-#### steps in the api  
+we deploy the above using streamlit api with authentication and the live url is given below 
+```
+https://charan7799-chrome-review-analyzer-web-review-analyzer-wp-ad8ree.streamlitapp.com/  
+```
+#### Steps in the api  
 As secrets.toml is not tracked, copy the contents of "secrets.toml" file to secrets page of streamlit api  
-enter the user details(user_1, "streamlit123")  
-upload the review file as csv  
+
+#### For testing the deployed app, enter the details below
+
+username:```user_1```
+
+password: ```streamlit123```
+
+upload the reviews file as csv -> for testing you can use the file Reviews.CSV from this repo
+
 verify the data  
+
 click "Download as CSV" to download the full data with only these filtered reviews  
