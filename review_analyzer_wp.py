@@ -1,8 +1,5 @@
 """
-Original file is located at
-    https://colab.research.google.com/drive/1khI0C3BgvZPGX5__VbAMy4FnR8LLebvw
-
-# Identifying ratings where review text is good, but rating is negative
+# Identifying ratings where review's text sentiment is positive, but were accompanied by low ratings
 """
 
 import pandas as pd
@@ -88,8 +85,8 @@ def main():
     st.title("Reviews Analyzer")
     # adding style to the page
     html_temp = """
-    <div style="background-color:tomato;padding:10px">
-    <h2 style="color:white;text-align:center;">Streamlit Review file analyzer to find low rated reviews with Positive sentiment---webApp </h2>
+    <div style="background-color:cyan;padding:10px">
+    <h2 style="color:white;text-align:center;">Streamlit Review file analyzer to find low rated reviews with Positive sentiment </h2>
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
