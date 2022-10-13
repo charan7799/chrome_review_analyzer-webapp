@@ -85,7 +85,7 @@ def main():
     st.title("Reviews Analyzer")
     # adding style to the page
     html_temp = """
-    <div style="background-color:cyan;padding:10px">
+    <div style="background-color:green;padding:10px">
     <h2 style="color:white;text-align:center;">Streamlit Review file analyzer to find low rated reviews with Positive sentiment </h2>
     </div>
     """
